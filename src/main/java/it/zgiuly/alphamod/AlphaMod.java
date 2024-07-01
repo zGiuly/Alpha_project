@@ -1,6 +1,9 @@
 package it.zgiuly.alphamod;
 
 import com.mojang.logging.LogUtils;
+import it.zgiuly.alphamod.Items.ModCreativeModTabs;
+import it.zgiuly.alphamod.Items.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -14,15 +17,19 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(ExampleMod.MOD_ID)
-public class ExampleMod
+@Mod(AlphaMod.MOD_ID)
+public class AlphaMod
 {
     public static final String MOD_ID = "alpha_mod";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public ExampleMod()
+    public AlphaMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModCreativeModTabs.register(modEventBus);
+        ModItems.register(modEventBus);
+
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -37,18 +44,23 @@ public class ExampleMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+
     }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.SAPPHIRE);
+            event.accept(ModItems.RAW_SAPPHIRE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
+
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
