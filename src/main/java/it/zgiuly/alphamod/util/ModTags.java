@@ -12,7 +12,7 @@ public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> NEEDS_SAPHIRE_TOOL = tag("needs_sapphire_tool");
 
-        public static final TagKey<Block> INCORRECT_BLOCKS = tag("incorrect_blocks_sapphire");
+        public static final TagKey<Block> INCORRECT_FOR_SAPPHIRE_TOOLS = tag("incorrect_blocks_sapphire");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(AlphaMod.MOD_ID, name));

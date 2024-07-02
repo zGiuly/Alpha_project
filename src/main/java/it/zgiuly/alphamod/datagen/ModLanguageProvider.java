@@ -27,7 +27,17 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.SAPPHIRE_ORE, "Sapphire ore");
         addBlock(ModBlocks.NETHER_SAPPHIRE_ORE, "Nether Sapphire ore");
 
+        //Tools
+        addItem(ModItems.SAPPHIRE_HOE, "Sapphire hoe");
+        addItem(ModItems.SAPPHIRE_SHOVEL, "Sapphire shovel");
+        addItem(ModItems.SAPPHIRE_SWORD, "Sapphire sword");
+        addItem(ModItems.SAPPHIRE_PICKAXE, "Sapphire pickaxe");
+
+        addItem(ModItems.SAPPHIRE_EMPOWERED_SWORD, "Sapphire empowered sword");
+
 
         add("creativetab.alpha_mod_tab", "Alpha mod tab");
+        add("item.alpha_mod.empowered_sword_desc", "Thunderbolt sword");
+        add("message.alpha_mod_too_close", "Too close for send thunder on the enemy!");
     }
 }
