@@ -17,12 +17,15 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+import java.util.Random;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(AlphaMod.MOD_ID)
 public class AlphaMod
 {
     public static final String MOD_ID = "alpha_mod";
     private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Random RNG = new Random();
 
     public AlphaMod()
     {
