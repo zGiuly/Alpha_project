@@ -1,10 +1,13 @@
 package it.zgiuly.alphamod.Items;
 
 import it.zgiuly.alphamod.AlphaMod;
+import it.zgiuly.alphamod.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -15,8 +18,12 @@ public class ModCreativeModTabs {
             icon(()->new ItemStack(ModItems.SAPPHIRE.get()))
             .title(Component.translatable("creativetab.alpha_mod_tab"))
             .displayItems((itemDisplayParameters, output) -> {
-                output.accept(ModItems.SAPPHIRE.get());
-                output.accept(ModItems.RAW_SAPPHIRE.get());
+                for (RegistryObject<Item> entry : ModItems.ITEMS.getEntries()) {
+                    output.accept(entry.get());
+                }
+                for (RegistryObject<Block> entry : ModBlocks.BLOCKS.getEntries()) {
+                    output.accept(entry.get());
+                }
             })
             .build());
 

@@ -3,6 +3,7 @@ package it.zgiuly.alphamod;
 import com.mojang.logging.LogUtils;
 import it.zgiuly.alphamod.Items.ModCreativeModTabs;
 import it.zgiuly.alphamod.Items.ModItems;
+import it.zgiuly.alphamod.block.ModBlocks;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,6 +30,7 @@ public class AlphaMod
 
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
 
         // Register the commonSetup method for modloading
